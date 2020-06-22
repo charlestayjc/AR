@@ -1,0 +1,58 @@
+<html>
+<body>
+
+<button onclick="getLocation()">We're Here</button>
+
+<p id="clue"></p>
+
+<script>
+var x = document.getElementById("clue");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+	var X = position.coords.latitude.toFixed(4);
+    var Y = -position.coords.longitude.toFixed(4);
+    var n = 0.05
+    <!-- Location 1: Green Lake -->
+    var Cx1 = 47.6150
+    var Cy1 = -122.3452
+    var C1 = "Welcome to The Amazing Race! Watch the following video clip for your first clue."
+    <!-- Location 2: Gas Works -->
+    var Cx2 = 0
+    var Cy2 = 0
+    var C2 = "Congrats on solving your first clue! Here's your next clue: What goes up must come down!"
+    <!-- Location 3: Discovery Park -->
+    var Cx3 = 0
+    var Cy3 = 0
+    var C3 = ""
+    <!-- Location 4: Elliot Bay Park -->
+    var Cx4 = 0
+    var Cy4 = 0
+    var C4 = ""
+    <!-- Location 5: Chinatown -->
+    var Cx5 = 0
+    var Cy5 = 0
+    var C5 = ""
+    <!-- Location 6: Alki Beach -->
+    var Cx6 = 0
+    var Cy6 = 0
+    var C6 = ""
+	if (X >= (Cx1 - n) && X <= (Cx1 + n) && Y >= (-Cy1 - n) && Y <= (-Cy1 + n)) x.innerHTML = C1;
+    else if (X >= (Cx2 - n) && X <= (Cx2 + n) && Y >= (-Cy2 - n) && Y <= (-Cy2 + n)) x.innerHTML = C2;
+    else if (X >= (Cx3 - n) && X <= (Cx3 + n) && Y >= (-Cy3 - n) && Y <= (-Cy3 + n)) x.innerHTML = C3;
+    else if (X >= (Cx4 - n) && X <= (Cx4 + n) && Y >= (-Cy4 - n) && Y <= (-Cy4 + n)) x.innerHTML = C4;
+    else if (X >= (Cx5 - n) && X <= (Cx5 + n) && Y >= (-Cy5 - n) && Y <= (-Cy5 + n)) x.innerHTML = C5;
+    else if (X >= (Cx6 - n) && X <= (Cx6 + n) && Y >= (-Cy6 - n) && Y <= (-Cy6 + n)) x.innerHTML = C6;
+    else x.innerHTML = "You're not there yet!";
+}
+</script>
+
+</body>
+</html>
